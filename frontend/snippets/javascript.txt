@@ -1,0 +1,7 @@
+const http = require("http");
+http.createServer((req, res) => {
+  if (req.url === "/javascript") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Hello World from JavaScript");
+  }
+}).listen(9002);

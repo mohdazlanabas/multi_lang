@@ -1,0 +1,18 @@
+#!/bin/bash
+echo Starting services on their ports...
+echo 'PYTHON: http://localhost:9001/python'
+echo 'JAVASCRIPT: http://localhost:9002/javascript'
+echo 'JAVA: http://localhost:9003/java'
+echo 'PHP: http://localhost:9004/php'
+echo 'DART: http://localhost:9005/dart'
+echo 'GO: http://localhost:9006/go'
+echo 'RUST: http://localhost:9007/rust'
+echo 'C: http://localhost:9008/c'
+echo 'CPP: http://localhost:9009/cpp'
+echo 'CSHARP: http://localhost:9010/csharp'
+echo 'RUBY: http://localhost:9017/ruby'
+echo 'TYPESCRIPT: http://localhost:9011/typescript'
+echo 'LUA: http://localhost:9012/lua'
+echo 'FORTRAN: http://localhost:9013/fortran'
+echo 'COBOL: http://localhost:9014/cobol'
+echo 'PASCAL: http://localhost:9015/pascal'

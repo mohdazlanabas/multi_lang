@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+int main() {
+    int server = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in addr = {AF_INET, htons(9008)};
+    addr.sin_addr.s_addr = INADDR_ANY;
+    bind(server, (struct sockaddr*)&addr, sizeof(addr));
+    listen(server, 5);
+    while (1) {
+        int client = accept(server, NULL, NULL);
+        char reply[] = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nAccess-Control-Allow-Origin: *\r\n\r\nPackage Being Served From C";
+        send(client, reply, strlen(reply), 0);
+        close(client);
+    }
+    return 0;
+}

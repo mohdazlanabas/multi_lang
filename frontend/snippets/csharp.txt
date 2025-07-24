@@ -1,0 +1,16 @@
+using System;
+using System.Net;
+using System.Text;
+class Program {
+    static void Main() {
+        HttpListener listener = new HttpListener();
+        listener.Prefixes.Add("http://localhost:9010/csharp/");
+        listener.Start();
+        while (true) {
+            var ctx = listener.GetContext();
+            var buffer = Encoding.UTF8.GetBytes("Hello World from C#");
+            ctx.Response.OutputStream.Write(buffer, 0, buffer.Length);
+            ctx.Response.Close();
+        }
+    }
+}

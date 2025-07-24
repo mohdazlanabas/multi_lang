@@ -1,0 +1,75 @@
+version: '3'
+services:
+  python:
+    build:
+      context: .
+      dockerfile: python_service/Dockerfile
+    command: python3 /app/python_service.py
+    volumes:
+      - .:/app
+    ports:
+      - "9001:9001"
+  javascript:
+    build:
+      context: .
+      dockerfile: node_service/Dockerfile
+    command: node /app/node_service.js
+    volumes:
+      - .:/app
+    ports:
+      - "9002:9002"
+  
+  dart:
+    build:
+      context: .
+      dockerfile: dart_service/Dockerfile
+    command: dart /app/dart_service.dart
+    volumes:
+      - .:/app
+    ports:
+      - "9005:9005"
+  go:
+    build:
+      context: .
+      dockerfile: go_service/Dockerfile
+    ports:
+      - "9006:9006"
+  rust:
+    build:
+      context: .
+      dockerfile: rust_service/Dockerfile
+    ports:
+      - "9007:9007"
+  c:
+    build:
+      context: .
+      dockerfile: c_service/Dockerfile
+    ports:
+      - "9008:9008"
+  cpp:
+    build:
+      context: .
+      dockerfile: cpp_service/Dockerfile
+    ports:
+      - "9009:9009"
+  csharp:
+    build:
+      context: .
+      dockerfile: csharp_service/Dockerfile
+    ports:
+      - "9010:9010"
+  ruby:
+    build:
+      context: ./ruby_service
+      dockerfile: Dockerfile
+    ports:
+      - "9017:9017"
+  kotlin:
+    build:
+      context: ./kotlin_service
+      dockerfile: Dockerfile
+    ports:
+      - "9011:9011"
+  
+  
+  

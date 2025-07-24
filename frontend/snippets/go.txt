@@ -1,0 +1,11 @@
+package main
+import ("fmt"; "net/http")
+func handler(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == "/go" {
+        fmt.Fprintf(w, "Hello World from Go")
+    }
+}
+func main() {
+    http.HandleFunc("/go", handler)
+    http.ListenAndServe(":9006", nil)
+}

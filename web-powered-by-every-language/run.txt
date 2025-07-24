@@ -1,0 +1,48 @@
+How to Run the Multi-Language Project
+====================================
+
+1. Prerequisites
+----------------
+- Make sure you have Docker and Docker Compose installed on your system.
+- (Optional) Python 3, if you want to use the simple web server for the frontend.
+- Start Docker Desktop
+
+2. Build and Start All Language Services
+----------------------------------------
+From the project root directory, run:
+
+    docker-compose up --build
+
+This command will build and start all language service containers. Each service will be available on its own port (9001-9015).
+
+3. Serve the Frontend
+---------------------
+In a new terminal window, navigate to the frontend directory:
+
+    cd frontend
+
+Start a simple web server (using Python 3):
+
+    python3 -m http.server 8080
+
+This will serve the frontend at http://localhost:8080
+
+4. View the Output
+------------------
+Open your web browser and go to:
+
+    http://localhost:8080
+
+You will see messages from every programming language service, each with a button to show the code snippet.
+
+5. Stopping the Services
+------------------------
+To stop all running containers, press Ctrl+C in the terminal running docker-compose, or run:
+
+    docker-compose down
+
+---
+
+If you have any issues or need more help, ask your AI assistant! 
+
+failed to execute bake: read |0: file already closed

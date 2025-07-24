@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Powered by Every Language</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🌍 Messages From Every Programming Language</h1>
+  <div id="messages"></div>
+  <script src="script.js"></script>
+  <!-- Forced refresh marker -->
+  <div id="info-display" style="text-align: center; font-size: 0.9em; color: #555; margin-top: 20px;"></div>
+  <p style="text-align: center; font-size: 0.8em; color: #888;">Developed by azlanio. Incompatible with Cobol, Fortran, Pascal, Java, Lua, PHP.</p>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      const formattedDateTime = now.toLocaleDateString(undefined, options);
+      document.getElementById('info-display').innerText = ` ${formattedDateTime}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000); // Update every second
+  </script>
+</body>
+</html>

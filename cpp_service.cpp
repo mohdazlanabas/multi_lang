@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <netinet/in.h>
+#include <unistd.h>
+int main() {
+    int server = socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in addr{};
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(9009);
+    addr.sin_addr.s_addr = INADDR_ANY;
+    bind(server, (sockaddr*)&addr, sizeof(addr));
+    listen(server, 5);
+    while (true) {
+        int client = accept(server, nullptr, nullptr);
+        std::string msg = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nAccess-Control-Allow-Origin: *\r\n\r\nPackage Being Served From C++";
+        send(client, msg.c_str(), msg.size(), 0);
+        close(client);
+    }
+}
