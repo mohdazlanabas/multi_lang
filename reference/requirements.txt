@@ -1,0 +1,11 @@
+# Host Machine Requirements for running 'Web Powered by Every Language'
+# This file lists the software dependencies required on your host machine to build and run this multi-language microservice project.
+
+- Docker (including Docker Compose)
+
+# Installation Instructions:
+# Please refer to the official Docker documentation for installation instructions specific to your operating system:
+# https://docs.docker.com/get-docker/
+
+# Docker Compose is typically bundled with Docker Desktop. If you need to install it separately, refer to:
+# https://docs.docker.com/compose/install/

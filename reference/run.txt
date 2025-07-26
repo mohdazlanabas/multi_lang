@@ -1,0 +1,27 @@
+To run this program:
+
+1. Ensure you have Docker and Docker Compose installed.
+
+2. From the root directory of the project (`/Users/rogerwoolie/Documents/Pers_CScience_2025/multi_lang/`), build and start all services using Docker Compose:
+   ```bash
+   docker-compose up --build -d
+   ```
+
+3. The services will be accessible at the following URLs:
+   - PYTHON: http://localhost:9001/python
+   - JAVASCRIPT: http://localhost:9002/javascript
+   - DART: http://localhost:9005/dart
+   - GO: http://localhost:9006/go
+   - RUST: http://localhost:9007/rust
+   - C: http://localhost:9008/c
+   - CPP: http://localhost:9009/cpp
+   - CSHARP: http://localhost:9010/csharp
+   - RUBY: http://localhost:9017/ruby
+   - KOTLIN: http://localhost:9011/kotlin
+
+4. To access the frontend, open `frontend/index.html` in your web browser.
+
+5. To stop the services, run the following command from the root directory:
+   ```bash
+   docker-compose down
+   ```
