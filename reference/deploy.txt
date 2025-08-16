@@ -1,0 +1,61 @@
+# Deploying on Render
+
+This project is designed for local development using Docker Compose, but you can deploy it on [Render](https://render.com) with some adjustments. Render does not support Docker Compose directly, so each service must be deployed as a separate web service. Here’s what you need to know:
+
+---
+
+## Key Considerations
+
+- **No Docker Compose Support:** Render does not support `docker-compose.yml`. Each backend (Python, Node.js, Go, etc.) must be deployed as a separate Render service.
+- **Networking:** Each service will have its own public URL. The frontend must use these URLs instead of `localhost`.
+- **CORS:** All backend services must send `Access-Control-Allow-Origin: *` (already implemented).
+- **Port Handling:** Render assigns ports dynamically. Your code should use the port specified by the `PORT` environment variable.
+
+---
+
+## Changes Required
+
+1. **Split Services:**
+   - Deploy each language service as a separate Render Web Service, each with its own Dockerfile.
+2. **Update Frontend URLs:**
+   - Change the frontend code to use the public Render URLs for each backend service (e.g., `https://python-service-xxxx.onrender.com/python`).
+   - Make these URLs configurable via environment variables or a config file if possible.
+3. **Port Configuration:**
+   - Update each backend to listen on the port specified by the `PORT` environment variable (e.g., `process.env.PORT` for Node.js, `os.environ['PORT']` for Python, etc.).
+4. **Frontend Hosting:**
+   - Deploy the frontend as a static site or as a web service on Render. Update it to fetch from the correct backend URLs.
+
+---
+
+## Step-by-Step Deployment
+
+1. **Push your code to GitHub.**
+2. **For each backend service:**
+   - Create a new Web Service on Render.
+   - Point it to the correct subdirectory and Dockerfile.
+   - Ensure the service listens on the port from the `PORT` environment variable.
+3. **For the frontend:**
+   - Deploy as a static site or web service.
+   - Update the code to use the Render URLs for each backend.
+4. **Test the setup:**
+   - Visit the frontend’s Render URL and verify it can fetch from all backend services.
+
+---
+
+## Example Table
+
+| Component   | Local URL                  | Render URL Example                        |
+|-------------|----------------------------|-------------------------------------------|
+| Python      | http://localhost:9001      | https://python-service-xxxx.onrender.com  |
+| Node.js     | http://localhost:9002      | https://node-service-xxxx.onrender.com    |
+| ...         | ...                        | ...                                       |
+| Frontend    | local file or server       | https://frontend-xxxx.onrender.com        |
+
+---
+
+**Summary:**
+- Deploy each service separately.
+- Update frontend to use Render URLs.
+- Ensure all services use the correct port and CORS headers.
+
+If you need a step-by-step guide for a specific language or the frontend, see Render’s documentation or ask for more details! 

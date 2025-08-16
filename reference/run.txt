@@ -19,7 +19,8 @@ To run this program:
    - RUBY: http://localhost:9017/ruby
    - KOTLIN: http://localhost:9011/kotlin
 
-4. To access the frontend, open `frontend/index.html` in your web browser.
+4. To access the frontend, open `frontend/index.html` in your web browser
+4a. Run the python app: python3 -m http.server 8000.
 
 5. To stop the services, run the following command from the root directory:
    ```bash

@@ -52,6 +52,7 @@ This project is a polyglot microservices demo, showing how you can run and inter
    ```
 3. **Access each service at its respective URL (e.g., http://localhost:9001/python).**
 4. **Open `frontend/index.html` in your browser to see the unified frontend.**
+4a. Fo To The Frontend and run the python localhost app: python3 -m http.server 8000
 5. **To stop everything, run:**
    ```bash
    docker-compose down
